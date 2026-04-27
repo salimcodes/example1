@@ -2,7 +2,7 @@
 
 ## What This Is
 
-This is a reusable AI QA module for pull request review. You can use this setup on Ximena, or adapt it for almost any software project.
+This is a reusable AI QA module for pull request review. You can adapt it for almost any software project.
 
 Use it when you want GitHub PRs to automatically answer these questions:
 
