@@ -2,7 +2,7 @@
 
 ## What This Is
 
-This is a reusable AI QA module for pull request review. You can use this setup for almost any software project.
+This is a reusable AI QA module for pull request review. You can use this setup on Ximena, or adapt it for almost any software project.
 
 Use it when you want GitHub PRs to automatically answer these questions:
 
@@ -105,17 +105,20 @@ It should answer:
 - what looks risky
 - where tests are weak
 - what edge cases may be missing
+- what codebase-specific change the developer should make instead
 
 Do this:
 
 - Use this as your general-purpose AI reviewer.
 - Run it on every PR if you want fast QA signal.
 - Feed it the diff and any available coverage data.
+- Feed it nearby changed-file context so recommendations follow existing project patterns.
 
 Do not do this:
 
 - Do not use this as the source of truth for product requirement coverage.
 - Do not block merges on this alone unless your process explicitly wants that.
+- Do not accept generic suggestions when the codebase gives enough context for a concrete replacement.
 
 ### 2. Scope vs QA Gap Analysis
 
@@ -464,11 +467,13 @@ Do this:
 
 - run `flutter test --coverage` if the project supports it
 - feed the model coverage context when available
+- include changed-file code context so Claude can suggest practical "do this instead" fixes
 - keep the report concise and actionable
 
 Do not do this:
 
 - do not make it Python-only if the repo is not Python
+- do not let recommendations stay abstract when the diff shows the relevant file or function
 
 ### Scope vs QA Gap Analysis
 
